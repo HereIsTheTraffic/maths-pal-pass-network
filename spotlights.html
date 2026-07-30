@@ -9,8 +9,9 @@
 
 <header class="site-header">
     <div class="site-header-inner">
-        <div class="site-logo" aria-label="Site logo placeholder"></div>
-        <h1 class="site-title">The Maths PAL/PASS Network</h1>
+        <a href="index.html" class="site-logo-link">
+            <img src="documents/maths-pal-pass-network-logo-full-approved.png" alt="Maths PAL/PASS Network logo" class="site-logo site-logo-image">
+        </a>
     </div>
 </header>
 
@@ -27,18 +28,107 @@
 <h2>Spotlights</h2>
 
 <p>
-This page shares ideas, reflections and short findings from the Maths PAL/PASS Network. It is designed to help coordinators and other network members learn from the experiences of peer-support schemes in mathematics.
+    Spotlights are short articles written by members of the Maths PAL/PASS Network. They are case studies and reflections on various aspects of peer support in mathematics. The spotlight may be on a new initiative they have tried or a reflection on existing practices. The aim is to provide insights and practical ideas that can help other coordinators and network members improve their own schemes. 
+</p>
+<p>
+    We hope that sharing practice in this way can also help the writers expand and evidence the reach and impact of their effective interventions.
+</p>
+<p>
+    We welcome contributions from all members of the network. If you would like to contribute a spotlight, please <a href="about.html">join the mailing list</a> and get in touch with the network coordinators Holly Barker (<a href="mailto:holly.barker@manchester.ac.uk">holly.barker@manchester.ac.uk</a>) and/or Simon Fairfax (<a href="mailto:Simon.Fairfax@liverpool.ac.uk">simon.fairfax@liverpool.ac.uk</a>). We can provide guidance on writing a spotlight and help with formatting it for the website.
 </p>
 
+<h2>Share how you used a spotlight</h2>
+<p>
+    If you have used or found one of the spotlights useful, please let us know! We will let the author know that their spotlight has been used and will share your response with them. 
+</p>
+
+<form id="spotlight-submission-form" class="submission-form" action="https://formspree.io/f/maqrzyal" method="POST">
+    <label for="spotlight-choice">Which spotlight did you use?</label>
+    <select id="spotlight-choice" name="spotlight" required>
+        <option value="">Please select one</option>
+        <option value="Maths Café at the University of Liverpool">Maths Café at the University of Liverpool</option>
+        <option value="Small groups to large groups at the University of Manchester">Small groups to large groups at the University of Manchester</option>
+        <option value="Other">Other</option>
+    </select>
+
+    <label for="submitter-name">Name</label>
+    <input type="text" id="submitter-name" name="name" required>
+
+    <label class="checkbox-row" for="contact-consent">
+        <input type="checkbox" id="contact-consent" name="contact-consent" value="yes">
+        I am happy to be contacted by the network coordinators or spotlight author to ask for more details about how I used the spotlight.
+    </label>
+
+    <div id="email-field-wrapper" style="display: none;">
+        <label for="submitter-email">Email address</label>
+        <input type="email" id="submitter-email" name="email">
+    </div>
+
+    <label for="spotlight-use">Briefly, how did you use the spotlight in your work?</label>
+    <textarea id="spotlight-use" name="description" rows="5" required></textarea>
+
+    <button type="submit">Submit</button>
+</form>
+<div id="form-success-message" class="form-success" role="status" aria-live="polite">
+    Thanks for your submission! We’ve received your response and will review it soon.
+</div>
+
 <h2>Featured Spotlights</h2>
-<ul>
-    <li>Supporting student leaders through training and feedback</li>
-    <li>Designing accessible sessions for diverse cohorts</li>
-    <li>Communicating the value of peer support to academic staff</li>
-    <li>Collecting evidence of impact for future planning</li>
-</ul>
+<h3>Maths Caf&eacute at the University of Liverpool <em>Dr Simon Fairfax</em></h3>
+Short description of the spotlight with a link to the full dowloadable PDF article.
+
+<h3>Small groups to large groups at the University of Manchester <em>Dr Holly Barker</em></h3>
+Short description of the spotlight with a link to the full dowloadable PDF article.
 
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('spotlight-submission-form');
+        const successMessage = document.getElementById('form-success-message');
+        const consentCheckbox = document.getElementById('contact-consent');
+        const emailFieldWrapper = document.getElementById('email-field-wrapper');
+
+        if (!form || !successMessage) {
+            return;
+        }
+
+        function toggleEmailField() {
+            if (consentCheckbox && emailFieldWrapper) {
+                emailFieldWrapper.style.display = consentCheckbox.checked ? 'block' : 'none';
+            }
+        }
+
+        if (consentCheckbox) {
+            consentCheckbox.addEventListener('change', toggleEmailField);
+            toggleEmailField();
+        }
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(function (response) {
+                if (response.ok) {
+                    form.reset();
+                    successMessage.style.display = 'block';
+                } else {
+                    throw new Error('Submission failed');
+                }
+            })
+            .catch(function () {
+                successMessage.textContent = 'Thanks for your submission! If the form service reports a problem, please try again in a moment.';
+                successMessage.style.display = 'block';
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
