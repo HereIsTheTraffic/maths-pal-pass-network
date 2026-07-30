@@ -1,16 +1,54 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    margin: 40px;
+    margin: 0;
     line-height: 1.6;
     color: #222;
-    max-width: 800px;
+    background: #f7f8fb;
+}
+
+.site-header {
+    background: linear-gradient(135deg, #0f3b5c 0%, #1a4a8a 100%);
+    color: white;
+    padding: 24px 32px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.site-header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.site-logo {
+    width: 64px;
+    height: 64px;
+    background: #111;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.site-title {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin: 0;
+}
+
+.page-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 32px 48px;
+    background: white;
+    min-height: calc(100vh - 180px);
 }
 
 /* Navigation bar */
 nav {
-    margin-bottom: 30px;
+    margin-bottom: 24px;
     border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
 }
 
 nav a {
