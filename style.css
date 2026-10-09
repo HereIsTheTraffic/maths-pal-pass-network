@@ -13,6 +13,34 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
+.site-footer {
+    padding: 24px 0;
+    background: #0f3b5c;
+    color: #ffffff;
+    font-size: 0.875rem;
+}
+
+.site-footer-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+.site-footer-name {
+    margin: 0 0 4px;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.site-footer-description {
+    margin: 0 0 8px;
+}
+
+.site-footer-founders {
+    margin: 0;
+    line-height: 1.5;
+}
+
 .site-header-inner {
     max-width: 820px;
     margin: 0 auto;
@@ -447,6 +475,10 @@ p {
         max-width: 300px;
         height: 116px;
         margin-bottom: -18px;
+    }
+
+    .site-footer {
+        padding: 20px 0;
     }
 
     nav {
