@@ -220,6 +220,11 @@ h3 {
     object-fit: cover;
 }
 
+.spotlight-preview {
+    width: 138px;
+    object-fit: contain;
+}
+
 .external-resource-preview {
     display: block;
     width: 220px;
